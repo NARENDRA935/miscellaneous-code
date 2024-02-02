@@ -16,7 +16,7 @@ data "aws_ami" "centos8" {
 resource "aws_instance" "prometheus" {
   ami           = data.aws_ami.centos8.image_id
   instance_type = "t3.micro"
-  vpc_security_group_ids = [sg-0200b43c5a335c1ba]
+  vpc_security_group_ids = ["sg-0200b43c5a335c1ba"]
 
   tags = {
     name= "prometheus-server"
