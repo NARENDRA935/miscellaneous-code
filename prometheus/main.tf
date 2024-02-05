@@ -19,7 +19,7 @@ resource "aws_instance" "prometheus" {
   vpc_security_group_ids = ["sg-0200b43c5a335c1ba"]
 
   tags = {
-    name= "prometheus-server"
+    name = "prometheus-server"
   }
 }
 
