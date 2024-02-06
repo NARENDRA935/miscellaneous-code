@@ -1,4 +1,4 @@
-- name: prometheus server setup
+- name: Prometheus Server Setup
   hosts: all
   become: yes
   roles:

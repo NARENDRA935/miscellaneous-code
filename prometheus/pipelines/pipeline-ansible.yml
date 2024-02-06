@@ -1,25 +1,31 @@
 format_version: 10
 pipelines:
- prometheus-ansible:
+  prometheus-ansible:
     group: tools
-    label_template: ${COUNT}
+    label_template: "${COUNT}"
     materials:
       ansible:
-        git: https://github.com/NARENDRA935/miscellaneous-code.git
+        git: https://github.com/NARENDRA935/miscellaneous-code
         shallow_clone: false
         auto_update: true
         branch: main
+        includes:
+          - src/**/*.*
     stages:
       - apply:
           fetch_materials: true
           jobs:
             apply:
+              approval:
+                type: manual
               timeout: 0
               tasks:
                 - exec:
                     working_directory: prometheus
                     command: bash
-                    argument: [ "ansible.sh"]
+                    arguments: [ "ansible.sh" ]
+
+
 
 
 
